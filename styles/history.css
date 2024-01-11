@@ -1,0 +1,84 @@
+/*歷史、收藏*/
+
+.title{
+    font-family:微軟正黑體;
+    font-weight:bold;
+    color:#7F7F7F;
+    font-size:22px;
+    position:absolute;
+    top:28.5%;
+    left:15%;
+}
+
+
+.rounded-rectangle {
+    width: 1250px;
+    height: 50px;
+    background-color: #F2F2F2;
+    border-radius: 25px; /* 設置圓角半徑 */
+    position:absolute;
+    top:30%;
+    left:10%;
+}
+
+.love1{
+    font-family:微軟正黑體;
+    font-weight:bold;
+    color:#7F7F7F;
+    font-size:20px;
+    position:absolute;
+    top:38%;
+    left:15%;		
+}
+.shopee1{
+    height:45px;
+    position:absolute;
+    top:39.5%;
+    left:11%;
+    
+}
+
+.solid-line {
+    border-top: 2px solid #7F7F7F;; /* 實線，2px寬，灰色 */
+    width: 1200px; /* 長度為1200px */
+    position:absolute;
+    top:48%;
+    left:11%;
+}
+.bbb {
+    display: inline-block;
+    padding: 10px 20px;
+    font-size: 20px;
+    color: #ffffff;
+    background-color: #70AD47;
+    border: none;
+    border-radius: 20px;
+    cursor: pointer;
+    transition: background-color 0.3s ease;
+    position: absolute;
+    top:39%;
+    left:66.5%;
+}
+
+.bbb2 {
+    font-family:微軟正黑體;
+    display: inline-block;
+    padding: 10px 20px;
+    font-size: 20px;
+    color: #ffffff;
+    background-color: #e74c3c;
+    border: none;
+    border-radius: 20px;
+    cursor: pointer;
+    transition: background-color 0.3s ease;
+    position: absolute;
+    top:39%;
+    left:75%;
+}
+.lovelogo{
+    font-family:微軟正黑體;
+    height:40px;
+    position: absolute;
+    top:39%;
+    left:85%;	
+}

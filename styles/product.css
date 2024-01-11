@@ -1,0 +1,158 @@
+    /*商品頁*/
+    /* Slideshow container */
+	.slideshow-container {
+		max-width: 500px;
+		position: absolute;
+		left: 10%; /* 設置左邊距 */
+		top: 60%;
+		transform: translateY(-50%);
+	}
+
+
+    /* Next & previous buttons */
+    .prev,
+    .next {
+        cursor: pointer;
+        position: absolute;
+        top: 60%;
+        width: auto;
+        margin-top: -22px;
+        padding: 16px;
+        color: white;
+        font-weight: bold;
+        font-size: 18px;
+        transition: 0.6s ease;
+        border-radius: 0 3px 3px 0;
+        user-select: none;
+		background-color: gray; /* 背景色 */
+		display: block;
+    }
+
+    /* Position the "next button" to the right */
+    .next {
+        right: -60px;
+        border-radius: 3px 0 0 3px;
+    }
+	.prev {
+		left: -60px; /* 設置左箭頭的位置 */
+	}
+
+    /* On hover, add a black background color with a little bit see-through */
+    .prev:hover,
+    .next:hover {
+        background-color: gray;
+    }
+
+
+
+    /* The dots/bullets/indicators */
+    .dot {
+        cursor: pointer;
+        height: 15px;
+        width: 15px;
+        margin: 0 2px;
+        background-color: #bbb;
+        border-radius: 50%;
+        display: inline-block;
+        transition: background-color 0.6s ease;
+    }
+
+    .active,
+    .dot:hover {
+        background-color: #717171;
+    }
+
+    /* Fading animation */
+    .fade {
+        -webkit-animation-name: fade;
+        -webkit-animation-duration: 1.5s;
+        animation-name: fade;
+        animation-duration: 1.5s;
+    }
+
+	.dots{
+		position: absolute;
+		left: 20%; /* 設置左邊距 */
+		bottom: 10%;
+	}
+	
+	/* */
+    .quantity-selector {
+      display: flex;
+      align-items: center;
+      font-size: 30px;
+	  position:absolute;
+	  top:80%;
+	  left:48%;
+    }
+
+    .quantity-input {
+      width: 100px;
+	  height: 45px;
+      text-align: center;
+      font-size: 25px;
+    }
+
+    .quantity-button {
+      cursor: pointer;
+      padding: 8px;
+      font-size: 25px;
+    }
+
+    /* 禁用箭頭控制 */
+    .quantity-input::-webkit-inner-spin-button,
+    .quantity-input::-webkit-outer-spin-button {
+      -webkit-appearance: none;
+      margin: 0;
+    }
+
+    .quantity-input[type="number"] {
+      -moz-appearance: textfield;
+    }
+	
+    .bb1 {
+      display: inline-block;
+      padding: 12px 24px;
+      font-size: 18px;
+      color: #ffffff;
+      background-color: #7F7F7F;
+      border: none;
+      border-radius: 4px;
+      cursor: pointer;
+      transition: background-color 0.3s ease;
+	  position: absolute;
+	  top: 80%;
+	  left:65%;
+    }
+
+    .bb1:hover {
+      background-color: #AFABAB;
+    }
+
+    .bb2 {
+      display: inline-block;
+      padding: 12px 24px;
+      font-size: 18px;
+      color: #ffffff;
+      background-color: #e74c3c;
+      border: none;
+      border-radius: 4px;
+      cursor: pointer;
+      transition: background-color 0.3s ease;
+	  position: absolute;
+	  top:80%;
+	  left:75%;
+    }
+
+    .bb2:hover {
+      background-color: #c0392b;
+    }
+	
+	.words{
+		font-size:20px;
+		position:absolute;
+		top:30%;
+		left:50%;
+	}
+
+    
