@@ -1,0 +1,167 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="utf-8">
+		<title>發起併單-運費平攤</title>
+    <link href="styles/main.css" rel="stylesheet"  />
+    <link href="styles/product.css" rel="stylesheet"  />
+	</head>
+	<body>
+    <div class="navbar">
+			<!--logo回首頁-->
+			<div class="logo">
+				<a href="index.html"><img id="logo-img" src="img/logo.png"/></a>
+			</div>
+			<!--上導覽列。左右反轉 -->
+			<ul id="top-menu">
+				<li><a href=""><img class="small" src="img/search.png"/></a>
+				</li>
+				<li><a href="chat.html"><img class="small" src="img/chat.png"/></a>
+				</li>
+				<li><a href="love.html"><img class="small" src="img/like.png"/></a>
+				</li>
+				<li><a href="loginup.html"><img class="small" src="img/user.png"/></a>
+				</li>
+			</ul>
+			<div class="clearfix"></div><!--清除格式-->
+		<!--中導覽列 -->
+			<ul id="mid-menu">
+				<li class="dropdown">
+					<a href="service-platform.html">服務分類</a>
+					<ul class="dropdown-content">
+						<li><a href="fee-platform.html">運費平攤</a></li>
+						<li><a href="all-bin.html">拆單</a></li>
+						<li><a href="all-share.html">團購</a></li>
+					</ul>
+				</li>
+				<li><a href="system-type.html">發單系統</a>
+				</li>
+				<li><a href="history.html">歷史紀錄</a>
+				</li>
+				<li><a href="form.html">回饋意見</a>
+				</li>
+			</ul>
+		</div>
+		<!--間隔直線 -->
+		<div class="line"></div>
+
+		<!--小標 -->
+		<div Class="smalltitle">首頁 > 拆單 > 安城湯麵</div>
+   
+    <div class="container">
+      <!-- Slideshow container -->
+      <div class="slideshow-container">
+        <!-- Full-width images with number and caption text -->
+        <div class="mySlides fade">
+            <img src="img/noodle1.jpg" style="width:380px">
+        </div>
+
+        <div class="mySlides fade">
+            <img src="img/noodle2.jpg" style="width:380px">
+        </div>
+
+        <div class="mySlides fade"><div class="numbertext"></div>
+            <img src="img/noodle3.jpg" style="width:380px">
+        </div>
+
+        <!-- Next and previous buttons -->
+        <a class="prev" onclick="plusSlides(-1)">&#10094;</a>
+        <a class="next" onclick="plusSlides(1)">&#10095;</a>
+      </div>
+
+      <!-- The dots/circles -->
+      <div class="dots">
+          <span class="dot" onclick="currentSlide(1)"></span>
+          <span class="dot" onclick="currentSlide(2)"></span>
+          <span class="dot" onclick="currentSlide(3)"></span>
+      </div>
+    
+    
+      <!--  右邊文字敘述 -->
+      <div class="words">
+	<p style="font-style: italic; font-size: xx-large; font-weight:bold;">好市多-農心 安城湯麵</p>
+	<a href="https://www.costco.com.tw/Food/Pantry-Dry-Goods/Rice-Noodles/Nongshim-Ansung-Noodle-Soup-125-g-X-20-Pack/p/244777">商品網站</a>
+	<p style="color:red;">截止日期：2024/01/08</p>
+	<p style="font-size:24px;">NT$27.45</p>
+	<p style="font-size:30px;">目標數量:60</p>
+	</div>
+
+      <!-- 下方賣家設定 -->
+      <div class="quantity-selector">
+        <div class="quantity-button" onclick="decreaseQuantity()">&#9665;</div>
+        <input type="text" class="quantity-input" id="quantity" value="1">
+        <div class="quantity-button" onclick="increaseQuantity()">&#9655;</div>
+      </div>
+      
+      <button class="bb1" id="bb1">加入收藏</button>
+      <button class="bb2" id="bb2">我要併!</button>
+    </div>
+  
+
+	<script>
+   var slideIndex = 1;
+    showSlides(slideIndex);
+
+    // Next/previous controls
+    function plusSlides(n) {
+        showSlides(slideIndex += n);
+    }
+
+    // Thumbnail image controls
+    function currentSlide(n) {
+        showSlides(slideIndex = n);
+    }
+
+    function showSlides(n) {
+        var i;
+        var slides = document.getElementsByClassName("mySlides");
+        var dots = document.getElementsByClassName("dot");
+        if (n > slides.length) { slideIndex = 1 }
+        if (n < 1) { slideIndex = slides.length }
+        for (i = 0; i < slides.length; i++) {
+            slides[i].style.display = "none";
+        }
+        for (i = 0; i < dots.length; i++) {
+            dots[i].className = dots[i].className.replace(" active", "");
+        }
+        slides[slideIndex - 1].style.display = "block";
+        dots[slideIndex - 1].className += " active";
+    }
+	
+	<!-- 數量增加/減少-->
+  function decreaseQuantity() {
+    var quantityInput = document.getElementById('quantity');
+    var currentQuantity = parseInt(quantityInput.value, 10);
+
+    if (currentQuantity > 1) {
+      quantityInput.value = currentQuantity - 1;
+    }
+  }
+
+  function increaseQuantity() {
+    var quantityInput = document.getElementById('quantity');
+    var currentQuantity = parseInt(quantityInput.value, 10);
+
+    quantityInput.value = currentQuantity + 1;
+  }
+
+  // 監聽鍵盤事件
+  document.getElementById('quantity').addEventListener('input', function () {
+    var quantityInput = this;
+    var currentQuantity = parseInt(quantityInput.value, 10);
+
+    if (isNaN(currentQuantity) || currentQuantity < 1) {
+      quantityInput.value = 1;
+    }
+  });
+  
+  	document.getElementById("bb1").addEventListener("click", function() {
+		alert("已加入收藏！");
+	  });
+	  
+	 document.getElementById("bb2").addEventListener("click", function() {
+		alert("已將資訊傳遞給賣家！");
+	  });
+	</script>
+	</body>
+</html>

@@ -1,0 +1,236 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="utf-8">
+		<title>團購-商品頁面</title>
+		<link href="styles/main.css" rel="stylesheet"  />
+		<style>
+		/*圖片部分*/
+		/* Content */
+			.section-title{/*標題*/
+				margin-bottom:40px;
+				width:180px;
+				border-bottom:hsl(249, 32%, 17%)2px solid;
+				margin-left:200px;
+				text-align:left;
+				padding-left:10px;
+			}
+			.shop-content {
+			  margin-left:200px; /*距離左邊200px，如果要做響應式這邊要改*/
+			  display: grid;
+			  grid-template-columns: repeat(4, 1fr);
+			  gap: 1.5rem;
+			}
+			.product-box {
+				text-align:left;
+				position: relative;
+			}
+			.product-box:hover {
+				padding: 10px;
+				border: 1px solid var(--text-color);
+				transition: 0.4s;
+			}
+			.product-img {
+			  width: 265px;
+			  height: 300px;
+			  margin-bottom: 0.5rem;
+			}
+			.product-title {
+			  font-size: 1.1rem;
+			  font-weight: 600;
+			  text-transform: uppercase;
+			  margin-bottom: 0.5rem;
+			}
+			.price {
+			  font-weight: 500;
+			}
+			.add-cart {
+			  position: absolute;
+			  bottom: 0;
+			  right: 0;
+			  background: var(--text-color);
+			  color: var(--bg-color);
+			  padding: 10px;
+			  cursor: pointer;
+			}
+			.add-cart:hover {
+			  background: hsl(249, 32%, 17%);
+			}
+			.product-box .product-img {
+				width: 265px;
+				height: 300px;
+				margin-bottom: 0.5rem;
+			}
+
+			.product-box .product-img:first-child {
+				position: absolute;
+				top: 0;
+				left: 0;
+				z-index: 1;
+			}
+	
+			.product-box .product-img:last-child {
+				position: relative;
+				z-index: 0;
+			}
+		</style>
+	</head>
+	<body>
+		<div class="navbar">
+			<!--logo回首頁-->
+			<div class="logo">
+				<a href="index.html"><img id="logo-img" src="img/logo.png"/></a>
+			</div>
+			<!--上導覽列。左右反轉 -->
+			<ul id="top-menu">
+				<li><a href=""><img class="small" src="img/search.png"/></a>
+				</li>
+				<li><a href="chat.html"><img class="small" src="img/chat.png"/></a>
+				</li>
+				<li><a href="love.html"><img class="small" src="img/like.png"/></a>
+				</li>
+				<li><a href="loginup.html"><img class="small" src="img/user.png"/></a>
+				</li>
+			</ul>
+			<div class="clearfix"></div><!--清除格式-->
+		<!--中導覽列 -->
+			<ul id="mid-menu">
+				<li class="dropdown">
+					<a href="service-platform.html">服務分類</a>
+					<ul class="dropdown-content">
+						<li><a href="fee-platform.html">運費平攤</a></li>
+						<li><a href="all-bin.html">拆單</a></li>
+						<li><a href="all-share.html">團購</a></li>
+					</ul>
+				</li>
+				<li><a href="system-type.html">發單系統</a>
+				</li>
+				<li><a href="history.html">歷史紀錄</a>
+				</li>
+				<li><a href="form.html">回饋意見</a>
+				</li>
+			</ul>
+		</div>
+		<!--間隔直線 -->
+		<div class="line"></div>
+	
+		<!--小標 -->
+		<div Class="smalltitle">首頁 > 運費平攤 >國內平台</div>
+
+
+		<section class="shop container">
+			<h2 class="section-title" id="all">所有商品</h2>
+			<!-- Content -->
+		    <div class="shop-content">
+				<!-- Box 1 -->
+				<div class="product-box">
+					<a href="product-feein.html">
+						<img class="product-img" src="img/shopee2.jpg" alt="">
+						<img class="product-img"src="img/shopee2.jpg" alt="" >
+					</a>
+					<h2 class="product-title">犀牛頓</h2>
+					<span class="date">2024/01/13</span>
+					<br />
+					<br />
+					<span class="price">目標:NT$2000</span>
+					<i class='bx bx-shopping-bag add-cart'></i>
+				</div>
+				<!-- Box 2 -->
+				<div class="product-box">
+					<img class="product-img" src="img/shopee2.jpg" alt="">
+					<img class="product-img" src="img/shopee2.jpg" alt="">
+					<h2 class="product-title">New balance</h2>
+					<span class="date">2024/01/12</span>
+					</br>
+					</br>
+					<span class="price">目標:NT$6000</span>
+					<br />
+					<i class='bx bx-shopping-bag add-cart'></i>
+				</div>
+				<!-- Box 3 -->
+				<div class="product-box">
+					<img class="product-img" src="img/momo.jpg" alt="">
+					<img class="product-img" src="img/momo.jpg" alt="">
+					<h2 class="product-title">Nike</h2>
+
+					<br />
+					<br />
+					<span class="price">目標:NT$6000</span>
+					<br />
+					<i class='bx bx-shopping-bag add-cart'></i>
+				</div>
+				<!--
+				
+				<div class="product-box">
+					<img src="img/water1.jpg" alt="" class="product-img">
+					<img src="img/water2.jpg" alt="" class="product-img">
+					<h2 class="product-title">科克蘭礦泉水</h2>
+
+					<br />
+					<br />
+					<span class="price">$350</span>
+					<br />
+					<i class='bx bx-shopping-bag add-cart'></i>
+				</div>
+				
+				<div class="product-box">
+					<img src="img/vit1.jpg" alt="" class="product-img">
+					<img src="img/vit2.jpg" alt="" class="product-img">
+					<h2 class="product-title">小善存</h2>
+
+					</br>
+					</br>
+					<span class="price">$150</span>
+					<br />
+					<i class='bx bx-shopping-bag add-cart'></i>
+				</div>
+				
+				<div class="product-box">
+					<img src="img/cat1.jpg" alt="" class="product-img">
+					<img src="img/cat2.jpg" alt="" class="product-img">
+					<h2 class="product-title">貓倍麗</h2>
+
+					<br />
+					<br />
+					<span class="price">$250</span>
+					<br />
+					<i class='bx bx-shopping-bag add-cart'></i>
+				</div>
+				
+				<div class="product-box">
+					<img src="img/wash1.jpg" alt="" class="product-img">
+					<img src="img/wash2.jpg" alt="" class="product-img">
+					<h2 class="product-title">科克蘭漱口水</h2>
+
+					</br>
+					</br>
+					<span class="price">$70</span>
+					<br />
+					<i class='bx bx-shopping-bag add-cart'></i>
+				</div>
+				-->
+			</div>
+		</section>
+		
+		<script>
+    document.addEventListener('DOMContentLoaded', function () {
+        var productBoxes = document.querySelectorAll('.product-box');
+
+        productBoxes.forEach(function (box) {
+            var images = box.querySelectorAll('.product-img');
+            var originalImage = images[0].src;
+
+            box.addEventListener('mouseenter', function () {
+                images[0].style.opacity = 0;
+                images[1].style.opacity = 1;
+            });
+
+            box.addEventListener('mouseleave', function () {
+                images[0].style.opacity = 1;
+                images[1].style.opacity = 0;
+            });
+        });
+    });
+		</script>
+	</body>
+</html>

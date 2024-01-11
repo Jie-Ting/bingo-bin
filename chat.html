@@ -1,0 +1,127 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>簡易聊天室</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            margin: 0;
+            padding: 0;
+            display: flex;
+            height: 100vh;
+        }
+
+        #chat-container {
+            display: flex;
+            width: 100%;
+            height: 100%;
+        }
+
+        #sidebar {
+            width: 30%;
+            background-color: #f1f1f1;
+            padding: 20px;
+            box-sizing: border-box;
+            overflow-y: auto;
+        }
+
+        #chatbox {
+            flex: 1;
+            padding: 20px;
+            box-sizing: border-box;
+            overflow-y: auto;
+        }
+
+        #chat-messages {
+            display: flex;
+            flex-direction: column;
+        }
+
+        .message {
+            max-width: 70%;
+            margin: 8px;
+            padding: 12px;
+            border-radius: 8px;
+            word-wrap: break-word;
+        }
+
+        .sender {
+            align-self: flex-end;
+            background-color: #4CAF50;
+            color: white;
+        }
+
+        .receiver {
+            align-self: flex-start;
+            background-color: #ddd;
+        }
+
+        #message-input {
+            width: 100%;
+            padding: 10px;
+            box-sizing: border-box;
+        }
+
+        #send-button {
+            width: 100%;
+            padding: 10px;
+            box-sizing: border-box;
+            background-color: #4CAF50;
+            color: white;
+            cursor: pointer;
+        }
+    </style>
+</head>
+<body>
+    <div id="chat-container">
+        <div id="sidebar">
+            <h2>所有人的聊天紀錄</h2>
+            <div id="chat-history"></div>
+        </div>
+        <div id="chatbox">
+            <h2>聊天室</h2>
+            <div id="chat-messages"></div>
+            <input type="text" id="message-input" placeholder="輸入訊息...">
+            <button id="send-button">發送</button>
+        </div>
+    </div>
+
+    <script>
+        document.addEventListener('DOMContentLoaded', function () {
+            const chatHistory = document.getElementById('chat-history');
+            const chatMessages = document.getElementById('chat-messages');
+            const messageInput = document.getElementById('message-input');
+            const sendButton = document.getElementById('send-button');
+
+            sendButton.addEventListener('click', function () {
+                const messageText = messageInput.value.trim();
+                if (messageText !== '') {
+                    appendMessage('你', messageText, 'sender');
+                    messageInput.value = '';
+                }
+            });
+
+            function appendMessage(sender, message, className) {
+                const messageElement = document.createElement('div');
+                messageElement.textContent = `${sender}: ${message}`;
+                messageElement.classList.add('message', className);
+                chatMessages.appendChild(messageElement);
+
+                // Scroll to the bottom of the chatbox
+                chatMessages.scrollTop = chatMessages.scrollHeight;
+            }
+
+            // Dummy data for initial chat history
+            const dummyHistory = ['歡迎來到聊天室！', '大家一起聊天吧！'];
+            dummyHistory.forEach(message => {
+                const historyElement = document.createElement('div');
+                historyElement.textContent = message;
+                chatHistory.appendChild(historyElement);
+            });
+        });
+    </script>
+</body>
+</html>
+

@@ -1,0 +1,88 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>bingo併-首頁</title>
+    <link href="styles/main.css" rel="stylesheet"  />
+    <link href="styles/loginup.css" rel="stylesheet"  />
+    <link href="styles/service.css" rel="stylesheet"  />
+    <script src="https://code.jquery.com/jquery-3.6.0.js"></script>
+    <script src="https://demeter.5fpro.com/tw/zipcode-selector.js"></script>
+</head>
+<body>   
+    <div class="navbar">
+        <!--logo回首頁-->
+        <div class="logo">
+            <a href="index.html"><img id="logo-img" src="img/logo.png"/></a>
+        </div>
+        <!--上導覽列。左右反轉 -->
+        <ul id="top-menu">
+            <li><a href=""><img class="small" src="img/search.png"/></a>
+            </li>
+            <li><a href="chat.html"><img class="small" src="img/chat.png"/></a>
+            </li>
+            <li><a href="love.html"><img class="small" src="img/like.png"/></a>
+            </li>
+            <li><a href="loginup.html"><img class="small" src="img/user.png"/></a>
+            </li>
+        </ul>
+        <div class="clearfix"></div><!--清除格式-->
+        <!--中導覽列 -->
+        <ul id="mid-menu">
+            <li class="dropdown">
+                <a href="service-platform.html">服務分類</a>
+                <ul class="dropdown-content">
+                    <li><a href="fee-platform.html">運費平攤</a></li>
+                    <li><a href="bin.html">拆單</a></li>
+                    <li><a href="share.html">團購</a></li>
+                </ul>
+            </li>
+            <li><a href="system-type.html">發單系統</a>
+            </li>
+            <li><a href="history.html">歷史紀錄</a>
+            </li>
+            <li><a href="form.html">回饋意見</a>
+            </li>
+        </ul>
+    </div>
+
+    <!--間隔直線 -->
+    <div class="line"></div>
+
+    <!--小標 -->
+    <div Class="smalltitle">首頁 > 發單系統 > 運費平攤 > 海外網站</div>
+    
+    <div class="form">
+        <div >平台網站: </div>
+            <select class="select1">
+                <option>ASOS</option>
+                <option>COGGLES</option>
+                <option>淘寶商城</option>
+                <option>Jack Wills</option>
+            </select>
+        <div >店家名稱: </div>
+        <input id='' type='text' required>
+        <div >店家網站:</div>
+        <input id='' type='text' required>
+        <div >免運金額:</div>
+        <input id='' type='text' required>
+        <div class="tw-selector">
+            <div >輸入郵遞區號：</div>
+            <input class="js-demeter-tw-zipcode-selector" data-city="#city" data-dist="#dist" placeholder="" />
+            <select class="select1" id="city" placeholder="請選擇縣市"></select>
+            <select class="select1" id="dist" placeholder="請選擇鄉鎮區"></select>
+        </div>
+        <div >截止日期：
+            <input class="date" type="date" name="deadline" min="2024-01-01" required />
+        </div>
+        <button class="btn" id="post" >發文</button>
+    </div>
+        
+</body>
+<script>
+document.getElementById("post").addEventListener("click", function() {
+		alert("已發文！");
+	  });
+</script>
+</html>

@@ -1,0 +1,112 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>bingo併</title>
+    <link href="styles/main.css" rel="stylesheet"  />
+    <link href="styles/index.css" rel="stylesheet" />
+    <script src="js/main.js"></script>
+	<style>
+	input[name="myText"] {
+            width: 200px;  /* 調整文字框的寬度 */
+            height: 25px;  /* 調整文字框的高度 */
+			position:absolute;
+			top:180px;
+			right:80px;
+        }
+	</style>
+</head>
+<body onload="marquee();">   
+    <div class="navbar">
+        <!--logo回首頁-->
+        <div class="logo">
+            <a href="index.html"><img id="logo-img" src="img/logo.png"/></a>
+        </div>
+        <!--上導覽列。左右反轉 -->
+        <ul id="top-menu">
+            <li><a href=""><img class="small" src="img/search.png"/></a>
+            </li>
+            <li><a href="chat.html"><img class="small" src="img/chat.png"/></a>
+            </li>
+            <li><a href="love.html"><img class="small" src="img/like.png"/></a>
+            </li>
+            <li><a href="loginup.html"><img class="small" src="img/user.png"/></a>
+            </li>
+        </ul>
+        <div class="clearfix"></div><!--清除格式-->
+    <!--中導覽列 -->
+        <ul id="mid-menu">
+            <li class="dropdown">
+                <a href="service-platform.html">服務分類</a>
+                <ul class="dropdown-content">
+                    <li><a href="fee-platform.html">運費平攤</a></li>
+                    <li><a href="all-bin.html">拆單</a></li>
+                    <li><a href="all-share.html">團購</a></li>
+                </ul>
+            </li>
+            <li><a href="system-type.html">發單系統</a>
+            </li>
+            <li><a href="history.html">歷史紀錄</a>
+            </li>
+            <li><a href="form.html">回饋意見</a>
+            </li>
+        </ul>
+    </div>
+	<input type="text" name="myText" size="20">
+    <!--間隔直線 -->
+    <div class="line"></div>
+
+    <!--內容 -->    
+    <div class="wrapper">
+         <!--首頁圖片 -->
+         <div>   
+            <img class="image" id="" src="img/000.jpg"/>
+         </div>
+         <!--網頁理念 --> 
+         <div class="left-content">
+            <h2>創作理念</h2>
+            <p style="font-size:20px;">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;一個讓使用者可以快速找到人一起免運、併單、團購的平台</p>
+        </div>
+        <div class="right-content">
+            <p style="color:gray; white-space: pre;">
+                運費太貴?商品太多?團購優惠? 讓我們一同共享購物的樂趣。
+                在這裡，每個人都是購物的夥伴！
+            </p>
+        </div>
+        <!--右下角(回到最上面) -->
+        <div class="up">   
+            <a href="#"><img id="up-icon" src="img/up.png"/></a>
+        </div>
+    </div>
+    
+    <!--最下面介紹 -->
+    <footer class="footer">
+        <div>
+            <p style="font-size:20px;">組員：徐以潔、張捷婷</p>
+        </div>
+        <div>
+            <img id="" src="img/ig.png"/>
+            <img id="" src="img/fb.png"/>
+            <img id="" src="img/line.png"/>
+        </div>  
+    </footer>
+</body>
+<script>
+	var msg = "感謝伍柏翰老師這學期的教導 !!!!!    ";
+        var interval = 600;      
+        var index = 0;
+
+        function marquee() {
+            document.getElementsByName("myText")[0].value = msg.substring(index, msg.length)
+                + msg.substring(0, index);
+            index++;       
+            if (index > msg.length) index = 0;
+            setTimeout(marquee, interval);
+        }
+
+        window.onload = function() {
+            marquee();
+        };
+</script>
+</html>

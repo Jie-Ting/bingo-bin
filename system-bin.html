@@ -1,0 +1,168 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>Drag and Drop File Upload</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta charset="utf-8">
+  <link rel="shortcut icon" href="/assets/favicon.ico">
+  <link rel="stylesheet" href="./src/main.css">
+  <link href="styles/main.css" rel="stylesheet"  />
+  <link href="styles/loginup.css" rel="stylesheet"  />
+  <link href="styles/system-up.css" rel="stylesheet"  />
+  <script src="https://code.jquery.com/jquery-3.6.0.js"></script>
+  <script src="https://demeter.5fpro.com/tw/zipcode-selector.js"></script>
+  <style>
+  
+  </style>
+</head>
+
+<body>
+	<div class="navbar">
+		<!--logo回首頁-->
+		<div class="logo">
+			<a href="index.html"><img id="logo-img" src="img/logo.png"/></a>
+		</div>
+		<!--上導覽列。左右反轉 -->
+		<ul id="top-menu">
+			<li><a href=""><img class="small" src="img/search.png"/></a>
+			</li>
+			<li><a href="chat.html"><img class="small" src="img/chat.png"/></a>
+			</li>
+			<li><a href="love.html"><img class="small" src="img/like.png"/></a>
+			</li>
+			<li><a href="loginup.html"><img class="small" src="img/user.png"/></a>
+			</li>
+		</ul>
+		<div class="clearfix"></div><!--清除格式-->
+	<!--中導覽列 -->
+		<ul id="mid-menu">
+			<li class="dropdown">
+				<a href="service-platform.html">服務分類</a>
+				<ul class="dropdown-content">
+					<li><a href="fee-platform.html">運費平攤</a></li>
+					<li><a href="all-bin.html">拆單</a></li>
+					<li><a href="all-share.html">團購</a></li>
+				</ul>
+			</li>
+			<li><a href="system-type.html">發單系統</a>
+			</li>
+			<li><a href="history.html">歷史紀錄</a>
+			</li>
+			<li><a href="form.html">回饋意見</a>
+			</li>
+		</ul>
+	</div>
+	<!--間隔直線 -->
+	<div class="line"></div>
+
+	<!--小標 -->
+	<div Class="smalltitle">首頁 > 發單系統 > 拆單</div>
+
+	<div class="container" >
+		<div class="drop-zone">
+			<span class="drop-zone__prompt">Drop file here or click to upload</span>
+			<input type="file" name="myFile" class="drop-zone__input">
+		</div>
+	
+		<div class="data">
+			<div >店家名稱: </div>
+				<input id='' type='text' required>
+				<div >店家網站:</div>
+				<input id='' type='text' required>
+				<div >免運金額:</div>
+				<input id='' type='text' required>
+				<div class="tw-selector">
+					<div >輸入郵遞區號：</div>
+					<input class="js-demeter-tw-zipcode-selector" data-city="#city" data-dist="#dist" placeholder="" />
+					<select class="select1" id="city" placeholder="請選擇縣市"></select>
+					<select class="select1" id="dist" placeholder="請選擇鄉鎮區"></select> 
+				</div>
+				<div >截止日期：
+					<input class="date" type="date" name="deadline" min="2024-01-01" required />
+				</div>
+				<button class="btn" id="post">發文</button>
+		</div>
+	</div>
+
+  <script>
+<!--畫面預覽圖-->  
+		  document.querySelectorAll(".drop-zone__input").forEach((inputElement) => {
+		  const dropZoneElement = inputElement.closest(".drop-zone");
+
+		  dropZoneElement.addEventListener("click", (e) => {
+			inputElement.click();
+		  });
+
+		  inputElement.addEventListener("change", (e) => {
+			if (inputElement.files.length) {
+			  updateThumbnail(dropZoneElement, inputElement.files[0]);
+			}
+		  });
+
+		  dropZoneElement.addEventListener("dragover", (e) => {
+			e.preventDefault();
+			dropZoneElement.classList.add("drop-zone--over");
+		  });
+
+		  ["dragleave", "dragend"].forEach((type) => {
+			dropZoneElement.addEventListener(type, (e) => {
+			  dropZoneElement.classList.remove("drop-zone--over");
+			});
+		  });
+
+		  dropZoneElement.addEventListener("drop", (e) => {
+			e.preventDefault();
+
+			if (e.dataTransfer.files.length) {
+			  inputElement.files = e.dataTransfer.files;
+			  updateThumbnail(dropZoneElement, e.dataTransfer.files[0]);
+			}
+
+			dropZoneElement.classList.remove("drop-zone--over");
+		  });
+		});
+
+		/**
+		 * Updates the thumbnail on a drop zone element.
+		 *
+		 * @param {HTMLElement} dropZoneElement
+		 * @param {File} file
+		 */
+		function updateThumbnail(dropZoneElement, file) {
+		  let thumbnailElement = dropZoneElement.querySelector(".drop-zone__thumb");
+
+		  // First time - remove the prompt
+		  if (dropZoneElement.querySelector(".drop-zone__prompt")) {
+			dropZoneElement.querySelector(".drop-zone__prompt").remove();
+		  }
+
+		  // First time - there is no thumbnail element, so lets create it
+		  if (!thumbnailElement) {
+			thumbnailElement = document.createElement("div");
+			thumbnailElement.classList.add("drop-zone__thumb");
+			dropZoneElement.appendChild(thumbnailElement);
+		  }
+
+		  thumbnailElement.dataset.label = file.name;
+
+		  // Show thumbnail for image files
+		  if (file.type.startsWith("image/")) {
+			const reader = new FileReader();
+
+			reader.readAsDataURL(file);
+			reader.onload = () => {
+			  thumbnailElement.style.backgroundImage = `url('${reader.result}')`;
+			};
+		  } else {
+			thumbnailElement.style.backgroundImage = null;
+		  }
+		}
+
+		document.getElementById("post").addEventListener("click", function() {
+		alert("已發文！");
+	  });
+
+  </script>
+  
+</body>
+</html>
